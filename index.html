@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="원가계산기">
+<meta name="theme-color" content="#e8c547">
+<title>식재료 원가계산기</title>
+<link rel="apple-touch-icon" href="data:image/png;base64,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">
+<script>
+// Inline manifest
+const manifestData = {"name": "\uc2dd\uc7ac\ub8cc \uc6d0\uac00\uacc4\uc0b0\uae30", "short_name": "\uc6d0\uac00\uacc4\uc0b0\uae30", "start_url": "./", "display": "standalone", "background_color": "#0f0e0c", "theme_color": "#e8c547", "icons": [{"src": "data:image/png;base64,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", "sizes": "192x192", "type": "image/png", "purpose": "any maskable"}, {"src": "data:image/png;base64,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", "sizes": "512x512", "type": "image/png", "purpose": "any maskable"}]};
+const blob = new Blob([JSON.stringify(manifestData)], {type:'application/json'});
+const manifestURL = URL.createObjectURL(blob);
+const link = document.createElement('link');
+link.rel = 'manifest';
+link.href = manifestURL;
+document.head.appendChild(link);
+
+// Inline service worker
+const swCode = `const CACHE='food-cost-v2';self.addEventListener('install',e=>{self.skipWaiting();});self.addEventListener('activate',e=>{self.clients.claim();});self.addEventListener('fetch',e=>{e.respondWith(caches.match(e.request).then(r=>r||fetch(e.request)));});`;
+const swBlob = new Blob([swCode], {type:'application/javascript'});
+const swURL = URL.createObjectURL(swBlob);
+if('serviceWorker' in navigator) {
+  navigator.serviceWorker.register(swURL).then(()=>console.log('SW OK'));
+}
+</script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0f0e0c; --surface: #1a1916; --surface2: #242220; --border: #2e2c28;
+    --accent: #e8c547; --accent2: #d4a843; --text: #f0ebe0; --text-dim: #8a8070;
+    --red: #e05a4e; --green: #5ec47a;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+  html, body { height: 100%; overflow: hidden; }
+  body { font-family: 'Noto Serif KR', serif; background: var(--bg); color: var(--text); display: flex; flex-direction: column; }
+  .topnav { background: var(--surface); border-bottom: 1px solid var(--border); padding: 14px 20px; display: flex; align-items: center; justify-content: space-between; flex-shrink: 0; padding-top: max(14px, env(safe-area-inset-top)); }
+  .topnav h1 { font-size: 16px; font-weight: 700; color: var(--accent); }
+  .topnav span { font-size: 10px; color: var(--text-dim); font-family: 'IBM Plex Mono', monospace; }
+  .bottom-tabs { background: var(--surface); border-top: 1px solid var(--border); display: flex; flex-shrink: 0; padding-bottom: env(safe-area-inset-bottom, 0px); }
+  .tab-btn { flex: 1; padding: 12px 8px; background: none; border: none; color: var(--text-dim); font-family: 'Noto Serif KR', serif; font-size: 11px; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 4px; transition: color 0.15s; }
+  .tab-btn .icon { font-size: 20px; }
+  .tab-btn.active { color: var(--accent); }
+  .tab-dot { width: 4px; height: 4px; border-radius: 50%; background: var(--accent); margin-top: 2px; display: none; }
+  .tab-btn.active .tab-dot { display: block; }
+  .pages { flex: 1; overflow: hidden; position: relative; }
+  .page { position: absolute; inset: 0; overflow-y: auto; display: none; padding: 16px; }
+  .page.active { display: block; }
+  .section-label { font-size: 10px; font-family: 'IBM Plex Mono', monospace; color: var(--text-dim); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 10px; margin-top: 20px; }
+  .section-label:first-child { margin-top: 0; }
+  .card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 16px; margin-bottom: 12px; }
+  .form-group { margin-bottom: 10px; }
+  .form-group label { font-size: 11px; color: var(--text-dim); font-family: 'IBM Plex Mono', monospace; display: block; margin-bottom: 4px; }
+  .form-group input, .form-group select { width: 100%; background: var(--surface2); border: 1px solid var(--border); color: var(--text); padding: 10px 12px; border-radius: 6px; font-family: 'IBM Plex Mono', monospace; font-size: 14px; appearance: none; -webkit-appearance: none; }
+  .form-group input:focus, .form-group select:focus { outline: none; border-color: var(--accent); }
+  .form-group input::placeholder { color: var(--text-dim); }
+  .btn { padding: 12px 20px; border-radius: 8px; border: none; font-family: 'IBM Plex Mono', monospace; font-size: 13px; cursor: pointer; font-weight: 500; transition: all 0.15s; width: 100%; margin-top: 4px; }
+  .btn-primary { background: var(--accent); color: #0f0e0c; }
+  .btn-primary:active { background: var(--accent2); transform: scale(0.98); }
+  .btn-outline { background: transparent; color: var(--accent); border: 1px solid var(--accent); }
+  .btn-danger-sm { background: transparent; color: var(--red); border: 1px solid var(--red); padding: 6px 10px; border-radius: 6px; font-family: 'IBM Plex Mono',monospace; font-size: 11px; cursor: pointer; }
+  .ing-item { background: var(--surface2); border: 1px solid var(--border); border-radius: 8px; padding: 12px 14px; display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; animation: fadeIn 0.2s ease; }
+  @keyframes fadeIn { from { opacity:0; transform:translateY(4px); } to { opacity:1; } }
+  .ing-name { font-size: 14px; font-weight: 600; margin-bottom: 2px; }
+  .ing-meta { font-size: 11px; color: var(--text-dim); font-family: 'IBM Plex Mono', monospace; }
+  .ing-unit-price { font-size: 12px; color: var(--accent); font-family: 'IBM Plex Mono', monospace; margin-bottom: 6px; text-align: right; }
+  .recipe-ing-row { background: var(--surface2); border: 1px solid var(--border); border-radius: 8px; padding: 10px 12px; margin-bottom: 8px; display: grid; grid-template-columns: 1fr 90px 28px; gap: 8px; align-items: center; animation: fadeIn 0.2s ease; }
+  .recipe-ing-row select, .recipe-ing-row input { background: var(--bg); border: 1px solid var(--border); color: var(--text); padding: 7px 8px; border-radius: 5px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; width: 100%; appearance: none; -webkit-appearance: none; }
+  .recipe-ing-row select:focus, .recipe-ing-row input:focus { outline: none; border-color: var(--accent); }
+  .row-cost { font-size: 11px; color: var(--accent); font-family: 'IBM Plex Mono', monospace; text-align: right; grid-column: 1/-1; }
+  .remove-btn { background: none; border: none; color: var(--text-dim); font-size: 20px; cursor: pointer; line-height: 1; padding: 0 2px; }
+  .result-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 12px; }
+  .result-box { background: var(--surface2); border: 1px solid var(--border); border-radius: 8px; padding: 14px; text-align: center; }
+  .result-box.accent-box { border-color: var(--accent); background: rgba(232,197,71,0.05); }
+  .r-label { font-size: 10px; color: var(--text-dim); font-family: 'IBM Plex Mono', monospace; letter-spacing: 1px; margin-bottom: 6px; }
+  .r-value { font-size: 18px; font-weight: 700; font-family: 'IBM Plex Mono', monospace; }
+  .clr-accent { color: var(--accent); } .clr-green { color: var(--green); } .clr-red { color: var(--red); }
+  .empty { text-align: center; padding: 40px 20px; color: var(--text-dim); }
+  .empty .e-icon { font-size: 36px; margin-bottom: 10px; opacity: 0.4; }
+  .empty p { font-size: 13px; }
+  .form-2col { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .install-banner { background: linear-gradient(135deg, #1a1916, #242220); border: 1px solid var(--accent); border-radius: 10px; padding: 16px; margin-bottom: 12px; }
+  .install-banner h3 { font-size: 15px; color: var(--accent); margin-bottom: 6px; }
+  .install-banner p { font-size: 12px; color: var(--text-dim); margin-bottom: 10px; line-height: 1.6; }
+  .toast { position: fixed; bottom: 90px; left: 50%; transform: translateX(-50%) translateY(10px); background: var(--accent); color: #0f0e0c; padding: 10px 20px; border-radius: 20px; font-family: 'IBM Plex Mono', monospace; font-size: 13px; font-weight: 500; opacity: 0; transition: all 0.3s; pointer-events: none; white-space: nowrap; z-index: 999; }
+  .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+</style>
+</head>
+<body>
+<div class="topnav">
+  <h1>🍽 식재료 원가계산기</h1>
+  <span id="ing-count">재료 0개</span>
+</div>
+<div class="pages">
+  <!-- PAGE 1: 재료 관리 -->
+  <div class="page active" id="page-ingredients">
+    <div id="install-banner-wrap"></div>
+    <div class="section-label">재료 등록</div>
+    <div class="card">
+      <div class="form-group"><label>재료명</label><input type="text" id="ing-name" placeholder="예: 닭가슴살"></div>
+      <div class="form-2col">
+        <div class="form-group"><label>단위</label>
+          <select id="ing-unit"><option value="g">g</option><option value="kg">kg</option><option value="ml">ml</option><option value="L">L</option><option value="개">개</option><option value="봉">봉</option><option value="팩">팩</option></select>
+        </div>
+        <div class="form-group"><label>구입량</label><input type="number" id="ing-qty" placeholder="1000" inputmode="decimal"></div>
+      </div>
+      <div class="form-group"><label>구입 금액 (원)</label><input type="number" id="ing-price" placeholder="5000" inputmode="decimal"></div>
+      <button class="btn btn-primary" onclick="addIngredient()">+ 재료 추가</button>
+    </div>
+    <div class="section-label">등록된 재료</div>
+    <div id="ingredient-list"><div class="empty"><div class="e-icon">🧅</div><p>재료를 추가해주세요</p></div></div>
+  </div>
+  <!-- PAGE 2: 레시피 -->
+  <div class="page" id="page-recipe">
+    <div class="section-label">레시피 정보</div>
+    <div class="card">
+      <div class="form-group"><label>레시피명</label><input type="text" id="recipe-name" placeholder="예: 닭갈비"></div>
+      <div class="form-2col">
+        <div class="form-group"><label>인분수</label><input type="number" id="recipe-servings" value="1" min="1" inputmode="numeric" oninput="recalculate()"></div>
+        <div class="form-group"><label>판매가 (원)</label><input type="number" id="selling-price" placeholder="12000" inputmode="decimal" oninput="recalculate()"></div>
+      </div>
+    </div>
+    <div class="section-label">사용 재료</div>
+    <div id="recipe-rows"><div class="empty"><div class="e-icon">🍳</div><p>아래 버튼으로 재료를 추가해요</p></div></div>
+    <button class="btn btn-outline" style="margin-top:8px;" onclick="addRecipeRow()">+ 재료 추가</button>
+  </div>
+  <!-- PAGE 3: 결과 -->
+  <div class="page" id="page-result">
+    <div class="section-label">원가 분석</div>
+    <div class="result-grid">
+      <div class="result-box accent-box"><div class="r-label">총 원가</div><div class="r-value clr-accent" id="res-total">₩0</div></div>
+      <div class="result-box accent-box"><div class="r-label">1인분 원가</div><div class="r-value clr-accent" id="res-per">₩0</div></div>
+      <div class="result-box"><div class="r-label">원가율</div><div class="r-value" id="res-ratio">-</div></div>
+      <div class="result-box"><div class="r-label">1인분 마진</div><div class="r-value" id="res-margin">-</div></div>
+    </div>
+    <div class="section-label">목표 마진 역산</div>
+    <div class="card">
+      <div class="form-group"><label>목표 원가율 (%)</label><input type="number" id="target-ratio" placeholder="예: 30" inputmode="decimal" oninput="calcTarget()"></div>
+      <div class="result-box accent-box" style="margin-top:4px;"><div class="r-label">권장 판매가 (1인분)</div><div class="r-value clr-accent" id="target-price">-</div></div>
+    </div>
+    <div class="section-label">재료별 원가 비중</div>
+    <div id="breakdown-list"><div class="empty"><div class="e-icon">📊</div><p>레시피를 구성하면 비중이 표시됩니다</p></div></div>
+  </div>
+</div>
+<div class="bottom-tabs">
+  <button class="tab-btn active" onclick="switchTab(0,this)"><span class="icon">🧅</span>재료관리<span class="tab-dot"></span></button>
+  <button class="tab-btn" onclick="switchTab(1,this)"><span class="icon">🍳</span>레시피<span class="tab-dot"></span></button>
+  <button class="tab-btn" onclick="switchTab(2,this)"><span class="icon">📊</span>결과분석<span class="tab-dot"></span></button>
+</div>
+<div class="toast" id="toast"></div>
+<script>
+let ingredients = JSON.parse(localStorage.getItem('fcc-v2') || '[]');
+let recipeRows = [];
+let deferredPrompt = null;
+const pages = ['page-ingredients','page-recipe','page-result'];
+
+// PWA Install
+window.addEventListener('beforeinstallprompt', e => {
+  e.preventDefault(); deferredPrompt = e;
+  showInstallBanner('android');
+});
+const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
+const isStandalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone;
+if (!isStandalone) {
+  if (isIOS) showInstallBanner('ios');
+  else setTimeout(() => { if (!deferredPrompt) showInstallBanner('guide'); }, 2000);
+}
+window.addEventListener('appinstalled', () => {
+  document.getElementById('install-banner-wrap').innerHTML = '';
+  showToast('✅ 앱이 설치되었습니다!');
+});
+
+function showInstallBanner(type) {
+  let content = '';
+  if (type === 'android') {
+    content = `<div class="install-banner"><h3>📲 홈화면에 설치하기</h3><p>앱으로 설치하면 오프라인에서도 사용할 수 있어요!</p><button class="btn btn-outline" onclick="installPWA()">홈화면에 추가</button></div>`;
+  } else if (type === 'ios') {
+    content = `<div class="install-banner"><h3>📲 홈화면에 설치하기 (아이폰)</h3><p>① 하단 공유버튼(□↑) 누르기<br>② "홈 화면에 추가" 선택<br>③ 오른쪽 상단 "추가" 누르기</p></div>`;
+  } else {
+    content = `<div class="install-banner"><h3>📲 홈화면에 설치하기</h3><p>브라우저 메뉴 → "홈 화면에 추가" 또는 "앱 설치"를 눌러주세요.</p></div>`;
+  }
+  document.getElementById('install-banner-wrap').innerHTML = content;
+}
+
+function installPWA() {
+  if (!deferredPrompt) return;
+  deferredPrompt.prompt();
+  deferredPrompt.userChoice.then(r => { deferredPrompt = null; });
+}
+
+function switchTab(idx, btn) {
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.getElementById(pages[idx]).classList.add('active');
+  if (idx === 2) recalculate();
+}
+
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg; t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 2200);
+}
+
+function save() { localStorage.setItem('fcc-v2', JSON.stringify(ingredients)); }
+
+function addIngredient() {
+  const name = document.getElementById('ing-name').value.trim();
+  const unit = document.getElementById('ing-unit').value;
+  const qty = parseFloat(document.getElementById('ing-qty').value);
+  const price = parseFloat(document.getElementById('ing-price').value);
+  if (!name || !qty || !price || qty <= 0 || price <= 0) { showToast('⚠️ 모든 항목을 입력해주세요'); return; }
+  ingredients.push({ id: Date.now(), name, unit, qty, price, unitPrice: price/qty });
+  save(); renderIngredients(); updateRecipeSelects();
+  document.getElementById('ing-name').value = '';
+  document.getElementById('ing-qty').value = '';
+  document.getElementById('ing-price').value = '';
+  showToast('✅ 재료가 추가되었습니다');
+}
+
+function removeIngredient(id) {
+  ingredients = ingredients.filter(i => i.id !== id);
+  save(); renderIngredients(); updateRecipeSelects(); recalculate();
+}
+
+function renderIngredients() {
+  document.getElementById('ing-count').textContent = `재료 ${ingredients.length}개`;
+  const el = document.getElementById('ingredient-list');
+  if (!ingredients.length) { el.innerHTML = '<div class="empty"><div class="e-icon">🧅</div><p>재료를 추가해주세요</p></div>'; return; }
+  el.innerHTML = ingredients.map(i => `
+    <div class="ing-item">
+      <div style="flex:1"><div class="ing-name">${i.name}</div><div class="ing-meta">${i.price.toLocaleString()}원 / ${i.qty}${i.unit}</div></div>
+      <div style="text-align:right"><div class="ing-unit-price">${i.unitPrice.toFixed(2)}원/${i.unit}</div><button class="btn-danger-sm" onclick="removeIngredient(${i.id})">삭제</button></div>
+    </div>`).join('');
+}
+
+function addRecipeRow() {
+  if (!ingredients.length) { showToast('⚠️ 먼저 재료를 등록해주세요'); return; }
+  recipeRows.push({ id: Date.now(), ingId: ingredients[0].id, amount: 0 });
+  renderRecipeRows();
+}
+
+function removeRecipeRow(id) {
+  recipeRows = recipeRows.filter(r => r.id !== id);
+  renderRecipeRows(); recalculate();
+}
+
+function updateRow(id, field, value) {
+  const row = recipeRows.find(r => r.id === id);
+  if (row) { row[field] = value; recalculate(); }
+}
+
+function renderRecipeRows() {
+  const el = document.getElementById('recipe-rows');
+  if (!recipeRows.length) { el.innerHTML = '<div class="empty"><div class="e-icon">🍳</div><p>아래 버튼으로 재료를 추가해요</p></div>'; return; }
+  el.innerHTML = recipeRows.map(row => {
+    const ing = ingredients.find(i => i.id === row.ingId) || ingredients[0];
+    const cost = ing ? Math.round(row.amount * ing.unitPrice) : 0;
+    return `<div class="recipe-ing-row">
+      <select onchange="updateRow(${row.id},'ingId',parseInt(this.value))">${ingredients.map(i=>`<option value="${i.id}"${i.id===row.ingId?' selected':''}>${i.name}</option>`).join('')}</select>
+      <div style="display:flex;align-items:center;gap:4px;">
+        <input type="number" min="0" step="0.1" value="${row.amount||''}" placeholder="0" inputmode="decimal" oninput="updateRow(${row.id},'amount',parseFloat(this.value)||0)">
+        <span style="font-size:11px;color:var(--text-dim);font-family:'IBM Plex Mono',monospace;white-space:nowrap">${ing?ing.unit:''}</span>
+      </div>
+      <button class="remove-btn" onclick="removeRecipeRow(${row.id})">×</button>
+      <div class="row-cost">${cost > 0 ? '→ ₩'+cost.toLocaleString() : ''}</div>
+    </div>`;
+  }).join('');
+}
+
+function updateRecipeSelects() { renderRecipeRows(); }
+
+function recalculate() {
+  let total = 0;
+  recipeRows.forEach(row => {
+    const ing = ingredients.find(i => i.id === row.ingId);
+    if (ing && row.amount > 0) total += row.amount * ing.unitPrice;
+  });
+  const servings = parseInt(document.getElementById('recipe-servings').value) || 1;
+  const sellPrice = parseFloat(document.getElementById('selling-price').value) || 0;
+  const perServing = total / servings;
+  document.getElementById('res-total').textContent = '₩' + Math.round(total).toLocaleString();
+  document.getElementById('res-per').textContent = '₩' + Math.round(perServing).toLocaleString();
+  if (sellPrice > 0 && perServing > 0) {
+    const ratio = (perServing / sellPrice) * 100;
+    const margin = sellPrice - perServing;
+    const re = document.getElementById('res-ratio');
+    re.textContent = ratio.toFixed(1) + '%';
+    re.className = 'r-value ' + (ratio > 35 ? 'clr-red' : ratio > 25 ? 'clr-accent' : 'clr-green');
+    const me = document.getElementById('res-margin');
+    me.textContent = '₩' + Math.round(margin).toLocaleString();
+    me.className = 'r-value ' + (margin >= 0 ? 'clr-green' : 'clr-red');
+  } else {
+    document.getElementById('res-ratio').textContent = '-';
+    document.getElementById('res-ratio').className = 'r-value';
+    document.getElementById('res-margin').textContent = '-';
+    document.getElementById('res-margin').className = 'r-value';
+  }
+  const bEl = document.getElementById('breakdown-list');
+  if (!recipeRows.length || total === 0) { bEl.innerHTML = '<div class="empty"><div class="e-icon">📊</div><p>레시피를 구성하면 비중이 표시됩니다</p></div>'; return; }
+  bEl.innerHTML = recipeRows.map(row => {
+    const ing = ingredients.find(i => i.id === row.ingId);
+    if (!ing || !row.amount) return '';
+    const cost = row.amount * ing.unitPrice;
+    const pct = (cost / total * 100);
+    return `<div class="ing-item" style="flex-direction:column;align-items:stretch;gap:6px;">
+      <div style="display:flex;justify-content:space-between;"><span style="font-size:13px;font-weight:600;">${ing.name}</span><span style="font-size:12px;color:var(--accent);font-family:'IBM Plex Mono',monospace;">₩${Math.round(cost).toLocaleString()} (${pct.toFixed(1)}%)</span></div>
+      <div style="background:var(--border);border-radius:4px;height:6px;overflow:hidden;"><div style="background:var(--accent);width:${pct}%;height:100%;border-radius:4px;transition:width 0.4s ease;"></div></div>
+    </div>`;
+  }).filter(Boolean).join('');
+  calcTarget();
+}
+
+function calcTarget() {
+  const ratio = parseFloat(document.getElementById('target-ratio').value);
+  const servings = parseInt(document.getElementById('recipe-servings').value) || 1;
+  let total = 0;
+  recipeRows.forEach(row => {
+    const ing = ingredients.find(i => i.id === row.ingId);
+    if (ing && row.amount > 0) total += row.amount * ing.unitPrice;
+  });
+  const perServing = total / servings;
+  document.getElementById('target-price').textContent = (ratio > 0 && perServing > 0) ? '₩' + Math.round(perServing / (ratio/100)).toLocaleString() : '-';
+}
+
+renderIngredients();
+renderRecipeRows();
+</script>
+</body>
+</html>
